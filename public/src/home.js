@@ -16,7 +16,7 @@ function booksBorrowedCount(books) {
       }
     }
     return acc;
-  }, 0)
+  }, 0);
   return result;
 }
 
