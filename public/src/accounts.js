@@ -16,7 +16,7 @@ function numberOfBorrows(account, books) {
       }
     }
     return acc;
-  }, 0)
+  }, 0);
   return result;
 }
 
@@ -29,7 +29,7 @@ function getBooksPossessedByAccount(account, books, authors) {
     const match = book.borrows.filter((borrow) => borrow.id === account.id && borrow.returned === false);
     if (match.length > 0) {
       const bookResult = book;
-      bookResult['author'] = getAuthorById(authors, book.authorId)
+      bookResult['author'] = getAuthorById(authors, book.authorId);
       result.push(bookResult);
     }
   }
