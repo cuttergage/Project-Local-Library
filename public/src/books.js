@@ -17,8 +17,6 @@ function partitionBooksByBorrowedStatus(books) {
   return result;
 }
 
-function getAccountById(accounts, accountId) { return accounts.find(account => account.id === accountId); }
-
 function getBorrowersForBook(book, accounts) {
   let result = book.borrows.map(borrower => {
     const result = accounts.find(account => borrower.id === account.id);
