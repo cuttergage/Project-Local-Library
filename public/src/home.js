@@ -27,7 +27,8 @@ function getMostCommonGenres(books) {
     if (match) {
       match.count++;
     } else {
-      genres.push({ name: book.genre, count: 1 });
+      const name = book.genre;
+      genres.push({ name, count: 1 });
     }
   });
   let result = genres.sort((genreA, genreB) => genreA.count < genreB.count ? 1 : -1);
@@ -38,7 +39,9 @@ function getMostCommonGenres(books) {
 function getMostPopularBooks(books) {
   const popularBooks = [];
   books.forEach(book => {
-    popularBooks.push({ name: book.title, count: book.borrows.length });
+    const name = book.title
+    const count = book.borrows.length
+    popularBooks.push({ name, count });
   });
   let result = popularBooks.sort((bookA, bookB) => bookA.count < bookB.count ? 1 : -1);
   result = result.slice(0,5);
@@ -54,10 +57,11 @@ function getMostPopularAuthors(books, authors) {
     if (match) {
       match.count += book.borrows.length;
     } else {
-      const name = getAuthorById(authors, book.authorId);
+      const writer = getAuthorById(authors, book.authorId);
+      const count = book.borrows.length;
       bookAuthors.push({
-        name: `${name.name.first} ${name.name.last}`,
-        count: book.borrows.length });
+        name: `${writer.name.first} ${writer.name.last}`,
+        count });
     }
   });
     let result = bookAuthors.sort((authorA, authorB) => authorA.count < authorB.count ? 1 : -1);
